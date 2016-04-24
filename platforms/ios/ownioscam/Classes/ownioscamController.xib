@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ownioscamController">
+            <connections>
+                <outlet property="ImageView" destination="OCF-PJ-knf" id="aEb-KZ-shV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGb-zx-UAK">
+                    <rect key="frame" x="0.0" y="535" width="600" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="DXp-EL-ict"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem style="plain" id="hW9-op-K4g">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TSr-bj-vXD">
+                                <rect key="frame" x="16" y="18" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:forEvent:" destination="-1" eventType="touchUpInside" id="YP0-1H-86T"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="GYd-Yj-T0A"/>
+                        <barButtonItem style="plain" id="tH7-4D-d3j">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k6j-uQ-86q">
+                                <rect key="frame" x="270" y="18" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.98431372549019602" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="takePhotoButtonPressed:forEvent:" destination="-1" eventType="touchUpInside" id="zyJ-VJ-erm"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9dz-dE-M8O"/>
+                        <barButtonItem style="plain" id="MIh-0C-5U7">
+                            <view key="customView" contentMode="scaleToFill" id="IeO-ep-DYO">
+                                <rect key="frame" x="128" y="9" width="50" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OCF-PJ-knf">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="48"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </items>
+                    <color key="barTintColor" red="0.035294119268655777" green="0.074509806931018829" blue="0.086274512112140656" alpha="1" colorSpace="deviceRGB"/>
+                </toolbar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBV-Hh-95m">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="535"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="XBV-Hh-95m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="26k-uX-eCI"/>
+                <constraint firstAttribute="bottom" secondItem="QGb-zx-UAK" secondAttribute="bottom" id="CLc-yy-w3n"/>
+                <constraint firstAttribute="trailing" secondItem="QGb-zx-UAK" secondAttribute="trailing" id="D5O-PZ-y8K"/>
+                <constraint firstItem="XBV-Hh-95m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IRD-6d-MQY"/>
+                <constraint firstAttribute="trailing" secondItem="XBV-Hh-95m" secondAttribute="trailing" id="MBb-bC-vqY"/>
+                <constraint firstAttribute="bottom" secondItem="QGb-zx-UAK" secondAttribute="bottom" id="hRP-2Y-2mt"/>
+                <constraint firstItem="QGb-zx-UAK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="huz-AN-H8t"/>
+                <constraint firstItem="QGb-zx-UAK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nzN-Tu-afi"/>
+                <constraint firstAttribute="trailing" secondItem="QGb-zx-UAK" secondAttribute="trailing" id="qjJ-iZ-Ln2"/>
+                <constraint firstItem="QGb-zx-UAK" firstAttribute="top" secondItem="XBV-Hh-95m" secondAttribute="bottom" id="zUy-EB-aXs"/>
+            </constraints>
+            <point key="canvasLocation" x="339" y="506"/>
+        </view>
+    </objects>
+</document>
