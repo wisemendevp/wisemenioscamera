@@ -18,7 +18,8 @@
         
         // Make us the delegate for the UIImagePickerController
         self.picker.delegate = self;
-        
+     //   self.overlay = [[ownioscamController alloc] init @"ownioscam" bundle:nil]
+                        
         // Set the frames to be full screen
         CGRect screenFrame = [[UIScreen mainScreen] bounds];
         self.view.frame = screenFrame;

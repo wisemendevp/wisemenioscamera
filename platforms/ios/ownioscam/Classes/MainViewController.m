@@ -69,6 +69,7 @@
     // you can do so here.
 
     [super viewWillAppear:animated];
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
 }
 
 - (void)viewDidLoad
