@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5E4D18DF-FEF8-481E-B915-530490FDB635</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ownioscam</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C27EB66428B56B11A9EDA4B94A5303AF4F65D51B</key>
+		<string>https://github.com/wisemendevp/iphotoCam.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/ownioscam.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C27EB66428B56B11A9EDA4B94A5303AF4F65D51B</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wisemendevp/iphotoCam.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C27EB66428B56B11A9EDA4B94A5303AF4F65D51B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C27EB66428B56B11A9EDA4B94A5303AF4F65D51B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ownioscam</string>
+		</dict>
+	</array>
+</dict>
+</plist>
