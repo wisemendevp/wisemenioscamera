@@ -35,7 +35,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="GYd-Yj-T0A"/>
                         <barButtonItem style="plain" id="tH7-4D-d3j">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k6j-uQ-86q">
-                                <rect key="frame" x="270" y="3" width="60" height="60"/>
+                                <rect key="frame" x="197" y="3" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.98431372549019602" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
@@ -54,6 +54,14 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="9dz-dE-M8O"/>
+                        <barButtonItem style="plain" id="Qkq-fb-kzF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sJz-3p-zHG">
+                                <rect key="frame" x="371" y="18" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sdF-Df-8g0"/>
                         <barButtonItem style="plain" id="MIh-0C-5U7">
                             <view key="customView" contentMode="scaleToFill" id="IeO-ep-DYO">
                                 <rect key="frame" x="530" y="9" width="50" height="48"/>
