@@ -71,8 +71,6 @@
 	</dict>
 	<key>NSMainNibFile</key>
 	<string></string>
-	<key>NSMainNibFile~ipad</key>
-	<string></string>
 	<key>UILaunchImages</key>
 	<array>
 		<dict>
@@ -179,6 +177,15 @@
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
-	<array/>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 </dict>
 </plist>

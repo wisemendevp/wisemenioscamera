@@ -2,6 +2,25 @@
 #import "ownioscamController.h"
 
 @implementation ownioscamController
+{
+ CGFloat _lastScale;
+}
+
+
+- (void)willAnimateRotationToInterfaceOrientation:
+(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Test Message"
+                                                    message:@"This is a sample"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+
 
 // Entry point method
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -15,22 +34,80 @@
         self.picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
         self.picker.showsCameraControls = NO;
+        self.picker.wantsFullScreenLayout = YES;
        // self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
-        
+      //  self.picker.
         // Make us the delegate for the UIImagePickerController
         self.picker.delegate = self;
-         self.picker.modalPresentationStyle = UIModalPresentationCustom;
+      //  self.picker.modalPresentationStyle =UIModalPresentationCustom;
+      //  self.picker.modalTransitionStyle = UIDeviceOrientationPortrait;
      //   self.overlay = [[ownioscamController alloc] init @"ownioscam" bundle:nil]
                         
         // Set the frames to be full screen
-        CGRect screenFrame = [[UIScreen mainScreen] bounds];
-        self.view.frame = screenFrame;
-        self.picker.view.frame = screenFrame;
+      //  self.picker.toolbarHidden = YES;
+    //    self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, 960, 720);
+      //  self.picker.preferredInterfaceOrientationForPresentation = UIDeviceOrientationPortrait;
+    
+      //  self.picker.preferredInterfaceOrientationForPresentation =
+       CGRect screenFrame = [[UIScreen mainScreen] bounds];
         
-        // Set this VC's view as the overlay view for the UIImagePickerController
-        self.picker.cameraOverlayView = self.view;
+        self.view.frame = screenFrame;
+      //  self.view.window.frame = screenFrame;
+       self.picker.view.frame = screenFrame;
+     //   self.picker.view = [UIColor clearColor];
+      //  self.view = [UIColor clearColor];
+      //  self.picker.view.window.frame = screenFrame;
+      
+        self.view.userInteractionEnabled = YES;
+        
+        UIPinchGestureRecognizer *pinchRec = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(doPinch:)];
+       [self.view addGestureRecognizer:pinchRec];        // Set this VC's view as the overlay view for the UIImagePickerController
+      //  [self.view.window addSubview:self.picker.view];
+        
+        CGSize screenBounds = [UIScreen mainScreen].bounds.size;
+        
+        CGFloat cameraAspectRatio = 4.0f/3.0f;
+        
+        CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
+        CGFloat scale = screenBounds.height / camViewHeight;
+        
+        self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
+        self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
+        
+   self.picker.cameraOverlayView = self.view;
+      //  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        //float cameraAspectRatio = 4.0 / 3.0;
+      //  float imageWidth = floorf(screenSize.width * cameraAspectRatio);
+      //  float scale = ceilf((screenSize.height / imageWidth) * 10.0) / 10.0;
+      //  self.picker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+    self.picker.cameraOverlayView.backgroundColor=[UIColor clearColor];
+          _lastScale = 1.;
     }
     return self;
+}
+
+
+
+-(void) doPinch:(UIPinchGestureRecognizer *) sender
+{
+
+    if([sender state] == UIGestureRecognizerStateEnded)
+    {
+        _lastScale = 1.0;
+        return;
+    }
+    
+    CGFloat scale = 1.0 - (_lastScale - sender.scale); // sender.scale gives current distance of fingers compared to initial distance. We want a value to scale the current transform with, so diff between previous scale and new scale is what must be used to stretch the current transform
+    
+    
+    CGAffineTransform currentTransform = self.picker.cameraViewTransform;
+    CGAffineTransform newTransform = CGAffineTransformScale (currentTransform, scale, scale); // stretch current transform by amount given by sender
+    
+    newTransform.a = MAX(newTransform.a, 1.); // it should be impossible to make preview smaller than screen (or initial size)
+    newTransform.d = MAX(newTransform.d, 1.);
+    
+    self.picker.cameraViewTransform = newTransform;
+    _lastScale = sender.scale;
 }
 
 // Action method.  This is like an event callback in JavaScript.
@@ -38,6 +115,16 @@
     // Call the takePicture method on the UIImagePickerController to capture the image.
     [self.picker takePicture];
     
+}
+
+-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window
+{
+
+if([self.view.window.rootViewController.presentedViewController isKindOfClass:[ownioscamController class]])
+{
+    return UIInterfaceOrientationPortrait;
+}
+else return UIInterfaceOrientationPortrait;
 }
 
 -(IBAction) cancel:(id)sender forEvent:(UIEvent*)event {
@@ -65,9 +152,7 @@
     return string;
 }
 
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    return UIInterfaceOrientationPortrait;
-}
+
 
 - (UIImage *)resizeImage:(UIImage*)image newSize:(CGSize)newSize {
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
@@ -104,17 +189,83 @@
      NSString* compressed_imagePath = [documentsDirectory stringByAppendingPathComponent:compressed_filename];
     
     // Get the image data (blocking; around 1 second)
-    NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
-    [imageData writeToFile:imagePath atomically:YES];
+ //   NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
+ //   [imageData writeToFile:imagePath atomically:YES];
     
     
     UIImage *newImage=image;
-    CGSize size=CGSizeMake(110,110);
+    CGFloat height = newImage.size.height;
+    CGFloat width = newImage.size.width;
+    CGFloat tempheight ;
+    CGFloat tempwidth ;
+  //  CGSize size;
+    
+    if(height > width)
+    {
+    //portrait
+      
+        if(height > 960 )
+        {
+            tempheight = 960;
+            // size=CGSizeMake(110,110);
+        }
+        else
+        {
+            tempheight = height;
+       
+        }
+        
+        if(width > 720 )
+        {
+          
+            tempwidth = 720;
+        }
+        else
+        {
+          
+            tempwidth = width;
+        }
+      
+        
+    }
+    
+    if(width > height)
+    {
+        //landscape
+        if(height > 720 )
+        {
+            tempheight  = 720;
+        }
+        else
+        {
+            tempheight = height;
+            
+        }
+        
+        if(width > 960 )
+        {
+            tempwidth = 960;
+        }
+        else
+        {
+            tempwidth = width;
+            
+        }
+
+    }
+    
+    CGFloat ht = tempheight;
+    CGFloat wt = tempwidth;
+    
+ // CGSize size=CGSizeMake(110,110);
+    CGSize size = CGSizeMake(tempwidth, tempheight);
+   
     newImage=[self resizeImage:newImage newSize:size];
     
-    
+     NSData* imageData1 = UIImageJPEGRepresentation(newImage, 1.0);
     NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 0.5);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
+    [imageData1 writeToFile:imagePath atomically:YES];
     
     
     NSString * str5 = [defaults objectForKey:@"k1"];

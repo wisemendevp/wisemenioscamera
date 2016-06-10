@@ -35,7 +35,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="GYd-Yj-T0A"/>
                         <barButtonItem style="plain" id="tH7-4D-d3j">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k6j-uQ-86q">
-                                <rect key="frame" x="197" y="3" width="60" height="60"/>
+                                <rect key="frame" x="270" y="3" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.98431372549019602" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
@@ -51,14 +51,6 @@
                                 <connections>
                                     <action selector="takePhotoButtonPressed:forEvent:" destination="-1" eventType="touchUpInside" id="zyJ-VJ-erm"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9dz-dE-M8O"/>
-                        <barButtonItem style="plain" id="Qkq-fb-kzF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sJz-3p-zHG">
-                                <rect key="frame" x="371" y="18" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="sdF-Df-8g0"/>
@@ -82,7 +74,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.75874660329999999" green="0.21855035959999999" blue="0.21551042040000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="XBV-Hh-95m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="26k-uX-eCI"/>
                 <constraint firstAttribute="bottom" secondItem="QGb-zx-UAK" secondAttribute="bottom" id="CLc-yy-w3n"/>
