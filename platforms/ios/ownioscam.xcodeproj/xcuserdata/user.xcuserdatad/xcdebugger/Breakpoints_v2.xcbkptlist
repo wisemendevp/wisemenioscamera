@@ -73,8 +73,8 @@
                   symbolName = "-[ownioscam overlay]"
                   moduleName = "ownioscam"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/project/ownioscam/platforms/ios/ownioscam/Classes/ownioscam.h"
-                  timestampString = "487174680.156317"
+                  urlString = "file:///Users/user/project_Backup/ownioscam/platforms/ios/ownioscam/Classes/ownioscam.h"
+                  timestampString = "487514901.624626"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -88,8 +88,8 @@
                   symbolName = "-[ownioscam setOverlay:]"
                   moduleName = "ownioscam"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/project/ownioscam/platforms/ios/ownioscam/Classes/ownioscam.h"
-                  timestampString = "487174680.156631"
+                  urlString = "file:///Users/user/project_Backup/ownioscam/platforms/ios/ownioscam/Classes/ownioscam.h"
+                  timestampString = "487514901.624762"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -257,6 +257,20 @@
             endingLineNumber = "109"
             landmarkName = "-doPinch:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ownioscam/Classes/ownioscamController.m"
+            timestampString = "487514901.537381"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

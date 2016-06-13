@@ -35,10 +35,10 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="GYd-Yj-T0A"/>
                         <barButtonItem style="plain" id="tH7-4D-d3j">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k6j-uQ-86q">
-                                <rect key="frame" x="270" y="3" width="60" height="60"/>
+                                <rect key="frame" x="269" y="4" width="62" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.98431372549019602" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal">
+                                <state key="normal" image="Camera snap.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,7 +74,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.75874660329999999" green="0.21855035959999999" blue="0.21551042040000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="XBV-Hh-95m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="26k-uX-eCI"/>
                 <constraint firstAttribute="bottom" secondItem="QGb-zx-UAK" secondAttribute="bottom" id="CLc-yy-w3n"/>
@@ -90,4 +90,7 @@
             <point key="canvasLocation" x="339" y="506"/>
         </view>
     </objects>
+    <resources>
+        <image name="Camera snap.png" width="132" height="132"/>
+    </resources>
 </document>

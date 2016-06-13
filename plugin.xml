@@ -37,6 +37,7 @@
         <source-file src="platforms/ios/ownioscam/Classes/ownioscam.m" />
         <source-file src="platforms/ios/ownioscam/Classes/ownioscamController.m" />
         <resource-file src="platforms/ios/ownioscam/Classes/ownioscamController.xib" />
+           <resource-file src="platforms/ios/ownioscam/Resources/icons/Camera snap.png" target="platforms/ios/ownioscam/Resources/icons/Camera snap.png" />
         
     </platform>
     
