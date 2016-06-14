@@ -23,4 +23,36 @@
 @property (strong, nonatomic) ownioscam* plugin;
 @property (strong, nonatomic) UIImagePickerController* picker;
 
+- (IBAction)Flasheventfire:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIToolbar *Toolbarproperty;
+
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *Flashproperty;
+- (IBAction)FlashEvent:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *AutoProperty;
+- (IBAction)AutoEvent:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *Onproperty;
+
+
+- (IBAction)onEvent:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *OffProperty;
+
+- (IBAction)OffEvent:(id)sender;
+
+
+
+
+
+
+
+
+
+
 @end

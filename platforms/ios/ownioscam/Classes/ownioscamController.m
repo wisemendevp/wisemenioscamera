@@ -6,6 +6,11 @@
  CGFloat _lastScale;
 }
 
+@synthesize Toolbarproperty;
+@synthesize Flashproperty;
+@synthesize AutoProperty;
+@synthesize Onproperty;
+@synthesize OffProperty;
 
 - (void)willAnimateRotationToInterfaceOrientation:
 (UIInterfaceOrientation)toInterfaceOrientation
@@ -35,6 +40,8 @@
         self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
         self.picker.showsCameraControls = NO;
         self.picker.wantsFullScreenLayout = YES;
+        
+        self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
        // self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
       //  self.picker.
         // Make us the delegate for the UIImagePickerController
@@ -73,7 +80,7 @@
         
         self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
         self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
-        
+        [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,nil,nil, nil]];
    self.picker.cameraOverlayView = self.view;
       //  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
         //float cameraAspectRatio = 4.0 / 3.0;
@@ -299,4 +306,24 @@ else return UIInterfaceOrientationPortrait;
     }
 }
 
+- (IBAction)FlashEvent:(id)sender {
+    [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,Onproperty,OffProperty, nil]];
+}
+- (IBAction)onEvent:(id)sender {
+    [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,Onproperty,nil,nil, nil]];
+     self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
+    
+}
+- (IBAction)AutoEvent:(id)sender {
+     [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,nil,nil, nil]];
+     self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+}
+- (IBAction)OffEvent:(id)sender {
+     [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,OffProperty,nil,nil, nil]];
+    self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+    
+}
+- (IBAction)Flasheventfire:(id)sender {
+     [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,Onproperty,OffProperty, nil]];
+}
 @end
