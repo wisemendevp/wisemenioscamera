@@ -175,7 +175,7 @@ else return UIInterfaceOrientationPortrait;
     // Get a reference to the captured image
     UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
-    self.ImageView.image = image;
+    //self.ImageView.image = image;
     
      NSString* string = [self generateRandomString:5];
       NSString* compresed_string = [self generateRandomString:5];
@@ -264,13 +264,16 @@ else return UIInterfaceOrientationPortrait;
     CGFloat ht = tempheight;
     CGFloat wt = tempwidth;
     
- // CGSize size=CGSizeMake(110,110);
+  CGSize size1=CGSizeMake(150,150);
     CGSize size = CGSizeMake(tempwidth, tempheight);
    
     newImage=[self resizeImage:newImage newSize:size];
+    UIImage * cmp_image = [self resizeImage:newImage newSize:size1];
+    self.ImageView.image = cmp_image;
+
     
      NSData* imageData1 = UIImageJPEGRepresentation(newImage, 1.0);
-    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 0.5);
+    NSData* compressed_imageData = UIImageJPEGRepresentation(cmp_image, 1.0);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
     [imageData1 writeToFile:imagePath atomically:YES];
     
