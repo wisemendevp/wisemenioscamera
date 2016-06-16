@@ -16,12 +16,7 @@
 (UIInterfaceOrientation)toInterfaceOrientation
                                          duration:(NSTimeInterval)duration
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Test Message"
-                                                    message:@"This is a sample"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    
 }
 
 
@@ -42,45 +37,31 @@
         self.picker.wantsFullScreenLayout = YES;
         
         self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-       // self.picker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
-      //  self.picker.
-        // Make us the delegate for the UIImagePickerController
+     
         self.picker.delegate = self;
-      //  self.picker.modalPresentationStyle =UIModalPresentationCustom;
-      //  self.picker.modalTransitionStyle = UIDeviceOrientationPortrait;
-     //   self.overlay = [[ownioscamController alloc] init @"ownioscam" bundle:nil]
-                        
-        // Set the frames to be full screen
-      //  self.picker.toolbarHidden = YES;
-    //    self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, 960, 720);
-      //  self.picker.preferredInterfaceOrientationForPresentation = UIDeviceOrientationPortrait;
-    
-      //  self.picker.preferredInterfaceOrientationForPresentation =
-       CGRect screenFrame = [[UIScreen mainScreen] bounds];
+            CGRect screenFrame = [[UIScreen mainScreen] bounds];
         
         self.view.frame = screenFrame;
-      //  self.view.window.frame = screenFrame;
+      // self.view.window.frame = screenFrame;
        self.picker.view.frame = screenFrame;
-     //   self.picker.view = [UIColor clearColor];
-      //  self.view = [UIColor clearColor];
-      //  self.picker.view.window.frame = screenFrame;
+    
       
-        self.view.userInteractionEnabled = YES;
-        
-        UIPinchGestureRecognizer *pinchRec = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(doPinch:)];
-       [self.view addGestureRecognizer:pinchRec];        // Set this VC's view as the overlay view for the UIImagePickerController
-      //  [self.view.window addSubview:self.picker.view];
-        
-        CGSize screenBounds = [UIScreen mainScreen].bounds.size;
-        
-        CGFloat cameraAspectRatio = 4.0f/3.0f;
-        
-        CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
-        CGFloat scale = screenBounds.height / camViewHeight;
-        
-        self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
-        self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
-        [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,nil,nil, nil]];
+//        self.view.userInteractionEnabled = YES;
+//        
+//        UIPinchGestureRecognizer *pinchRec = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(doPinch:)];
+//       [self.view addGestureRecognizer:pinchRec];        // Set this VC's view as the overlay view for the UIImagePickerController
+//     
+//        
+//        CGSize screenBounds = [UIScreen mainScreen].bounds.size;
+//        
+//        CGFloat cameraAspectRatio = 4.0f/3.0f;
+//        
+//        CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
+//        CGFloat scale = screenBounds.height / camViewHeight;
+//        
+//        self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
+//        self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
+//        [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,nil,nil, nil]];
    self.picker.cameraOverlayView = self.view;
       //  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
         //float cameraAspectRatio = 4.0 / 3.0;
@@ -97,24 +78,24 @@
 
 -(void) doPinch:(UIPinchGestureRecognizer *) sender
 {
-
-    if([sender state] == UIGestureRecognizerStateEnded)
-    {
-        _lastScale = 1.0;
-        return;
-    }
-    
-    CGFloat scale = 1.0 - (_lastScale - sender.scale); // sender.scale gives current distance of fingers compared to initial distance. We want a value to scale the current transform with, so diff between previous scale and new scale is what must be used to stretch the current transform
-    
-    
-    CGAffineTransform currentTransform = self.picker.cameraViewTransform;
-    CGAffineTransform newTransform = CGAffineTransformScale (currentTransform, scale, scale); // stretch current transform by amount given by sender
-    
-    newTransform.a = MAX(newTransform.a, 1.); // it should be impossible to make preview smaller than screen (or initial size)
-    newTransform.d = MAX(newTransform.d, 1.);
-    
-    self.picker.cameraViewTransform = newTransform;
-    _lastScale = sender.scale;
+//
+//    if([sender state] == UIGestureRecognizerStateEnded)
+//    {
+//        _lastScale = 1.0;
+//        return;
+//    }
+//    
+//    CGFloat scale = 1.0 - (_lastScale - sender.scale); // sender.scale gives current distance of fingers compared to initial distance. We want a value to scale the current transform with, so diff between previous scale and new scale is what must be used to stretch the current transform
+//    
+//    
+//    CGAffineTransform currentTransform = self.picker.cameraViewTransform;
+//    CGAffineTransform newTransform = CGAffineTransformScale (currentTransform, scale, scale); // stretch current transform by amount given by sender
+//    
+//    newTransform.a = MAX(newTransform.a, 1.); // it should be impossible to make preview smaller than screen (or initial size)
+//    newTransform.d = MAX(newTransform.d, 1.);
+//    
+//    self.picker.cameraViewTransform = newTransform;
+//    _lastScale = sender.scale;
 }
 
 // Action method.  This is like an event callback in JavaScript.
