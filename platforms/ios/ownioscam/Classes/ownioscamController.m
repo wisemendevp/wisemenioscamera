@@ -279,7 +279,7 @@ else return UIInterfaceOrientationPortrait;
     
     
     NSString * str5 = [defaults objectForKey:@"k1"];
-    //UIImage *img = [UIImage imageWithContentsOfFile:imagePath];
+    ///UIImage *img = [UIImage imageWithContentsOfFile:imagePath];
     // UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
     if([str5 length] == 0)
     {
