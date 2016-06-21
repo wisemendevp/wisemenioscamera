@@ -13,10 +13,6 @@
 @synthesize OffProperty;
 
 
-
-
-
-
 // Entry point method
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,7 +34,7 @@
         
         self.view.frame = screenFrame;
        self.view.window.frame = screenFrame;
-       self.picker.view.frame = screenFrame;
+     //  self.picker.view.frame = screenFrame;
      //   self.picker.modalPresentationStyle = UIModalPresentationCustom;
       
 //        self.view.userInteractionEnabled = YES;
@@ -49,6 +45,7 @@
 //
         
         UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        if(orientation == UIDeviceOrientationPortrait)
         {
       CGSize screenBounds = [UIScreen mainScreen].bounds.size;
       CGFloat cameraAspectRatio = 4.0f/3.0f;
@@ -57,6 +54,11 @@
       self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
       self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
         }
+        else{
+              self.picker.cameraViewTransform = CGAffineTransformMakeScale(1.6f,1.6f);
+        
+        }
+        
        [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,nil,nil, nil]];
    self.picker.cameraOverlayView = self.view;
      //  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
@@ -99,12 +101,7 @@
     else
         
     {
-        self.picker.view.frame = CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height );
-        self.picker.cameraViewTransform = CGAffineTransformMakeScale(1.0,1.0);
-        
-        
-     
-        
+        self.picker.cameraViewTransform = CGAffineTransformMakeScale(1.6f,1.6f);
         
     }
     

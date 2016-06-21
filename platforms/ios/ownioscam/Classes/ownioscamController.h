@@ -5,7 +5,7 @@
 
 @interface ownioscamController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 //{
--(BOOL) shouldAutorotate;
+//-(BOOL) shouldAutorotate;
 -(NSUInteger) supportedInterfaceOrientations;
 //IBOutlet UIImageView *ImageView;
 //}
