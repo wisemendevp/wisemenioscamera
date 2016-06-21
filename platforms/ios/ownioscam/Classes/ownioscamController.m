@@ -12,12 +12,7 @@
 @synthesize Onproperty;
 @synthesize OffProperty;
 
-- (void)willAnimateRotationToInterfaceOrientation:
-(UIInterfaceOrientation)toInterfaceOrientation
-                                         duration:(NSTimeInterval)duration
-{
-    
-}
+
 
 
 
@@ -44,23 +39,24 @@
         self.view.frame = screenFrame;
        self.view.window.frame = screenFrame;
        self.picker.view.frame = screenFrame;
-        self.picker.modalPresentationStyle = UIModalPresentationCustom;
+     //   self.picker.modalPresentationStyle = UIModalPresentationCustom;
       
 //        self.view.userInteractionEnabled = YES;
 //        
 //        UIPinchGestureRecognizer *pinchRec = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(doPinch:)];
 //       [self.view addGestureRecognizer:pinchRec];        // Set this VC's view as the overlay view for the UIImagePickerController
 //     
-//        
-       CGSize screenBounds = [UIScreen mainScreen].bounds.size;
-       
+//
+        
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        {
+      CGSize screenBounds = [UIScreen mainScreen].bounds.size;
       CGFloat cameraAspectRatio = 4.0f/3.0f;
-       
       CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
-       CGFloat scale = screenBounds.height / camViewHeight;
-       
-        self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
+      CGFloat scale = screenBounds.height / camViewHeight;
+      self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
       self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
+        }
        [Toolbarproperty setItems:[[NSArray alloc]initWithObjects:Flashproperty,AutoProperty,nil,nil, nil]];
    self.picker.cameraOverlayView = self.view;
      //  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
@@ -74,7 +70,46 @@
     return self;
 }
 
+- (void)orientationChanged:(NSNotification *)notification
 
+{
+    UIDeviceOrientation dev_orientation = [[UIDevice currentDevice] orientation];
+    
+    [self adjustViewsForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+    
+}
+
+- (void) adjustViewsForOrientation:(UIInterfaceOrientation) orientation {
+   // NSString * dfghgh = @"dfhgjfdhj";
+    
+    if(orientation == UIDeviceOrientationPortrait)
+    {
+        
+        CGSize screenBounds = [UIScreen mainScreen].bounds.size;
+        
+        CGFloat cameraAspectRatio = 4.0f/3.0f;
+        
+        CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
+        CGFloat scale = screenBounds.height / camViewHeight;
+        
+        self.picker.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
+        self.picker.cameraViewTransform = CGAffineTransformScale(self.picker.cameraViewTransform, scale, scale);
+      
+    }
+    else
+        
+    {
+        self.picker.view.frame = CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height );
+        self.picker.cameraViewTransform = CGAffineTransformMakeScale(1.0,1.0);
+        
+        
+     
+        
+        
+    }
+    
+    
+}
 
 -(void) doPinch:(UIPinchGestureRecognizer *) sender
 {
@@ -105,15 +140,7 @@
     
 }
 
--(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window
-{
 
-if([self.view.window.rootViewController.presentedViewController isKindOfClass:[ownioscamController class]])
-{
-    return UIInterfaceOrientationPortrait;
-}
-else return UIInterfaceOrientationPortrait;
-}
 
 -(IBAction) cancel:(id)sender forEvent:(UIEvent*)event {
     // Call the takePicture method on the UIImagePickerController to capture the image.
