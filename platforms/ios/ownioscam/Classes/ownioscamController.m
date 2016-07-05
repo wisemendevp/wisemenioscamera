@@ -277,7 +277,23 @@
     self.ImageView.image = cmp_image;
 
     
-     NSData* imageData1 = UIImageJPEGRepresentation(newImage, 0.4);
+     NSData* imageData1 = UIImageJPEGRepresentation(newImage, 0.5);
+     if([imageData1 length] > 500000)
+     {
+      imageData1 =  = UIImageJPEGRepresentation(newImage, 0.45);
+      if([imageData1 length] > 500000)
+     {
+     imageData1 =  = UIImageJPEGRepresentation(newImage, 0.4);
+      if([imageData1 length] > 500000)
+     {
+     imageData1 =  = UIImageJPEGRepresentation(newImage, 0.35);
+      if([imageData1 length] > 500000)
+     {
+     imageData1 =  = UIImageJPEGRepresentation(newImage, 0.3);
+     }
+     }
+     }
+     }
     NSData* compressed_imageData = UIImageJPEGRepresentation(cmp_image, 0.6);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
     [imageData1 writeToFile:imagePath atomically:YES];
