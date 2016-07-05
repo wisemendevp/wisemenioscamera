@@ -277,8 +277,8 @@
     self.ImageView.image = cmp_image;
 
     
-     NSData* imageData1 = UIImageJPEGRepresentation(newImage, 0.6);
-    NSData* compressed_imageData = UIImageJPEGRepresentation(cmp_image, 1.0);
+     NSData* imageData1 = UIImageJPEGRepresentation(newImage, 0.4);
+    NSData* compressed_imageData = UIImageJPEGRepresentation(cmp_image, 0.6);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
     [imageData1 writeToFile:imagePath atomically:YES];
     
