@@ -280,16 +280,16 @@
      NSData* imageData1 = UIImageJPEGRepresentation(newImage, 0.5);
      if([imageData1 length] > 500000)
      {
-      imageData1 =  = UIImageJPEGRepresentation(newImage, 0.45);
+      imageData1 =   UIImageJPEGRepresentation(newImage, 0.45);
       if([imageData1 length] > 500000)
      {
-     imageData1 =  = UIImageJPEGRepresentation(newImage, 0.4);
+     imageData1 =  UIImageJPEGRepresentation(newImage, 0.4);
       if([imageData1 length] > 500000)
      {
-     imageData1 =  = UIImageJPEGRepresentation(newImage, 0.35);
+     imageData1 =   UIImageJPEGRepresentation(newImage, 0.35);
       if([imageData1 length] > 500000)
      {
-     imageData1 =  = UIImageJPEGRepresentation(newImage, 0.3);
+     imageData1 =   UIImageJPEGRepresentation(newImage, 0.3);
      }
      }
      }
