@@ -279,27 +279,27 @@
 
     
      NSData* imageData1 = UIImageJPEGRepresentation(newImage, 0.5);
-      if([imageData1 length] > 350000)
+      if([imageData1 length] > 300000)
     {
         imageData1 =   UIImageJPEGRepresentation(newImage, 0.65);
         
-        if([imageData1 length] > 350000)
+        if([imageData1 length] > 300000)
         {
             imageData1 =  UIImageJPEGRepresentation(newImage, 0.6);
            
-            if([imageData1 length] > 350000)
+            if([imageData1 length] > 300000)
             {
                 imageData1 =   UIImageJPEGRepresentation(newImage, 0.55);
               
-                if([imageData1 length] > 350000)
+                if([imageData1 length] > 300000)
                 {
                     imageData1 =   UIImageJPEGRepresentation(newImage, 0.5);
                    
-                    if([imageData1 length] > 350000)
+                    if([imageData1 length] > 300000)
                     {
                         imageData1 =   UIImageJPEGRepresentation(newImage, 0.45);
                      
-                        if([imageData1 length] > 350000)
+                        if([imageData1 length] > 300000)
                         {
                             imageData1 =   UIImageJPEGRepresentation(newImage, 0.4);
                          
@@ -307,10 +307,18 @@
                             {
                                 imageData1 =   UIImageJPEGRepresentation(newImage, 0.35);
                             
-                                if([imageData1 length] > 350000)
+                                if([imageData1 length] > 300000)
                                 {
                                     imageData1 =   UIImageJPEGRepresentation(newImage, 0.3);
+                                  if([imageData1 length] > 300000)
+                                {
+                                    imageData1 =   UIImageJPEGRepresentation(newImage, 0.25);
+                                  if([imageData1 length] > 300000)
+                                {
+                                    imageData1 =   UIImageJPEGRepresentation(newImage, 0.2);
                                   
+                                }
+                                }
                                 }
                             }
                         }
@@ -341,6 +349,10 @@
                             if([compressed_imageData length] > 10000)
                             {
                                 compressed_imageData = UIImageJPEGRepresentation(cmp_image, 0.3);
+                             if([compressed_imageData length] > 10000)
+                            {
+                                compressed_imageData = UIImageJPEGRepresentation(cmp_image, 0.2);
+                            }
                             }
                         }
                     }
