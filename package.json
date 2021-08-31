@@ -1,0 +1,23 @@
+{
+  "name": "wisemenioscamera",
+  "version": "1.0.0",
+  "description": "wisemen camera plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisemendevp/wisemenioscamera.git"
+  },
+  "keywords": [
+    "camera",
+    "plugin"
+  ],
+  "author": "devwisemen <dev@vqs.com.au>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wisemendevp/wisemenioscamera/issues"
+  },
+  "homepage": "https://github.com/wisemendevp/wisemenioscamera#readme"
+}
